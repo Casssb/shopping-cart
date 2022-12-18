@@ -1,20 +1,24 @@
 import { Routes, Route } from 'react-router-dom';
-import Cart from './pages/Cart';
-import Home from './pages/Home';
-import Shop from './pages/Shop';
+import React, { Suspense } from 'react';
+const Cart = React.lazy(() => import('./pages/Cart'));
+const Home = React.lazy(() => import('./pages/Home'));
+const Shop = React.lazy(() => import('./pages/Shop'));
+const NoMatch = React.lazy(() => import('./pages/NoMatch'));
 import Navbar from './components/Navbar';
-import NoMatch from './pages/NoMatch';
+import { CircularProgress } from '@mui/material';
 
 function App() {
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route exact path="/" element={<Home />}></Route>
-        <Route path="shop" element={<Shop />}></Route>
-        <Route path="cart" element={<Cart />}></Route>
-        <Route path="*" element={<NoMatch />}></Route>
-      </Routes>
+      <Suspense fallback={<CircularProgress color="secondary" />}>
+        <Routes>
+          <Route exact path="/" element={<Home />}></Route>
+          <Route path="shop" element={<Shop />}></Route>
+          <Route path="cart" element={<Cart />}></Route>
+          <Route path="*" element={<NoMatch />}></Route>
+        </Routes>
+      </Suspense>
     </>
   );
 }
