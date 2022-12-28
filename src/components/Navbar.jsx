@@ -11,6 +11,7 @@ import {
   Menu,
   Box,
   MenuItem,
+  Badge,
 } from '@mui/material';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -157,7 +158,9 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open cart">
               <IconButton onClick={handleOpenCart} sx={{ p: 0 }}>
-                <ShoppingCartIcon />
+                <Badge badgeContent={cartItems.length} color='primary'>
+                  <ShoppingCartIcon />
+                </Badge>
               </IconButton>
             </Tooltip>
             <Menu
