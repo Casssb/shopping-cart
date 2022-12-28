@@ -18,9 +18,9 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu';
 
 const pages = [
-  { name: 'home', to: '/' },
-  { name: 'shop', to: 'shop' },
-  { name: 'cart', to: 'cart' },
+  { name: 'Home', to: '/' },
+  { name: 'Shop', to: 'shop' },
+  { name: 'Cart', to: 'cart' },
 ];
 
 const cartItems = ['item1', 'item2', 'item3'];
@@ -109,7 +109,6 @@ const Navbar = () => {
                   onClick={handleCloseMenu}
                   component={NavLink}
                   to={page.to}
-                  sx={{ color: 'common.white' }}
                 >
                   <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
@@ -147,7 +146,14 @@ const Navbar = () => {
                 component={NavLink}
                 to={page.to}
                 onClick={handleCloseMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{
+                  my: 2,
+                  color: 'text.primary',
+                  display: 'block',
+                  '&.active': {
+                    color: 'primary.main',
+                  },
+                }}
               >
                 {page.name}
               </Button>
@@ -158,7 +164,7 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open cart">
               <IconButton onClick={handleOpenCart} sx={{ p: 0 }}>
-                <Badge badgeContent={cartItems.length} color='primary'>
+                <Badge badgeContent={cartItems.length} color="primary">
                   <ShoppingCartIcon />
                 </Badge>
               </IconButton>
