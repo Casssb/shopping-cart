@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { ShopContext } from '../../context/ShopContext';
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  const {
+    state: { products },
+  } = ShopContext();
 
-export default Home
+  console.log(products);
+  return <div><img src={products[1].imageSrc} alt="" /></div>;
+};
+
+export default Home;
