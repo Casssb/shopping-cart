@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext, useMemo, useReducer } from 'react';
 import products from '../data/products';
 import { shopReducer } from './Reducers';
 
@@ -8,10 +8,16 @@ const Context = ({ children }) => {
   const [state, dispatch] = useReducer(shopReducer, {
     products: products,
     cart: [],
-    cartTotal: 0,
   });
 
-  return <Shop.Provider value={{ state, dispatch }}>{children}</Shop.Provider>;
+  const cachedState = useMemo(
+    () => ({
+      state,
+    }),
+    [state]
+  );
+
+  return <Shop.Provider value={{ cachedState, dispatch }}>{children}</Shop.Provider>;
 };
 
 const ShopContext = () => useContext(Shop);

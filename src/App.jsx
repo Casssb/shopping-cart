@@ -6,13 +6,12 @@ import {
 } from 'react-router-dom';
 import React from 'react';
 import { CircularProgress } from '@mui/material';
+import RootLayout from './layouts/RootLayout';
 
 const Cart = React.lazy(() => import('./pages/cart/Cart'));
 const Home = React.lazy(() => import('./pages/home/Home'));
 const Shop = React.lazy(() => import('./pages/shop/Shop'));
 const NoMatch = React.lazy(() => import('./pages/NoMatch'));
-
-import RootLayout from './layouts/RootLayout';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
