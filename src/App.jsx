@@ -4,7 +4,7 @@ import {
   RouterProvider,
   Route,
 } from 'react-router-dom';
-import React, { Suspense } from 'react';
+import React from 'react';
 import { CircularProgress } from '@mui/material';
 
 const Cart = React.lazy(() => import('./pages/cart/Cart'));
@@ -16,17 +16,17 @@ import RootLayout from './layouts/RootLayout';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-      <Route path="/" element={<RootLayout />}>
-        <Route index element={<Home />} />
-        <Route path="shop" element={<Shop />} />
-        <Route path="cart" element={<Cart />} />
-        <Route path="*" element={<NoMatch />} />
-      </Route>
+    <Route path="/" element={<RootLayout />}>
+      <Route index element={<Home />} />
+      <Route path="shop" element={<Shop />} />
+      <Route path="cart" element={<Cart />} />
+      <Route path="*" element={<NoMatch />} />
+    </Route>
   )
 );
 function App() {
   return (
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} fallbackElement={<CircularProgress />} />
   );
 }
 

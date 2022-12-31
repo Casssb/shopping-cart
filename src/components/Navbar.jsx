@@ -49,7 +49,7 @@ const Navbar = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         {/* Large Screen leftside display */}
-        <Toolbar disableGutters>
+        <Toolbar disableGutters component={'nav'}>
           <IconButton
             aria-label="logo"
             component={NavLink}
