@@ -17,7 +17,7 @@ const Banner = () => {
     <Box
       position="relative"
       component={'section'}
-      maxWidth={'1920px'}
+      maxWidth={'1490px'}
       margin={'auto'}
     >
       <Box
@@ -62,7 +62,7 @@ const Banner = () => {
             src={products[16].imageSrc}
             style={{
               width: '100%',
-              height: '80vh',
+              height: '90vh',
               objectFit: 'cover',
               backgroundAttachment: 'fixed',
             }}
@@ -73,7 +73,7 @@ const Banner = () => {
             src={products[2].imageSrc}
             style={{
               width: '100%',
-              height: '80vh',
+              height: '90vh',
               objectFit: 'cover',
               backgroundAttachment: 'fixed',
             }}
@@ -84,7 +84,7 @@ const Banner = () => {
             src={products[18].imageSrc}
             style={{
               width: '100%',
-              height: '80vh',
+              height: '90vh',
               objectFit: 'cover',
               backgroundAttachment: 'fixed',
             }}
