@@ -2,56 +2,96 @@ import React from 'react';
 import { ShopContext } from '../../context/ShopContext';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
+import { Box, Button, Container, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const Banner = () => {
+  const navigate = useNavigate();
   const {
     cachedState: {
       state: { products },
     },
   } = ShopContext();
 
-  console.log(products);
   return (
-    <Carousel
-      infiniteLoop={true}
-      showThumbs={false}
-      showStatus={false}
-      autoPlay={true}
+    <Box
+      position="relative"
+      component={'section'}
+      maxWidth={'1920px'}
+      margin={'auto'}
     >
-      <div>
-        <img
-          src={products[1].imageSrc}
-          style={{
-            width: '100%',
-            height: '80vh',
-            objectFit: 'cover',
-            backgroundAttachment: 'fixed',
-          }}
-        />
-      </div>
-      <div>
-        <img
-          src={products[2].imageSrc}
-          style={{
-            width: '100%',
-            height: '80vh',
-            objectFit: 'cover',
-            backgroundAttachment: 'fixed',
-          }}
-        />
-      </div>
-      <div>
-        <img
-          src={products[16].imageSrc}
-          style={{
-            width: '100%',
-            height: '80vh',
-            objectFit: 'cover',
-            backgroundAttachment: 'fixed',
-          }}
-        />
-      </div>
-    </Carousel>
+      <Box
+        position="absolute"
+        top="20%"
+        right="40vw"
+        zIndex="99"
+        color={'black'}
+      >
+        <Container maxWidth="xl">
+          <Typography variant="h5" fontWeight={'700'}>
+            The latest in
+          </Typography>
+          <Typography variant="h3" fontWeight={'500'}>
+            AI generated
+          </Typography>
+          <Typography
+            variant="h1"
+            fontWeight={'700'}
+            color={'black'}
+            letterSpacing={'4px'}
+          >
+            Art
+          </Typography>
+          <Button
+            variant="contained"
+            size="large"
+            onClick={() => navigate('/shop')}
+          >
+            Shop Now
+          </Button>
+        </Container>
+      </Box>
+      <Carousel
+        infiniteLoop={true}
+        showThumbs={false}
+        showStatus={false}
+        autoPlay={true}
+      >
+        <div>
+          <img
+            src={products[16].imageSrc}
+            style={{
+              width: '100%',
+              height: '80vh',
+              objectFit: 'cover',
+              backgroundAttachment: 'fixed',
+            }}
+          />
+        </div>
+        <div>
+          <img
+            src={products[2].imageSrc}
+            style={{
+              width: '100%',
+              height: '80vh',
+              objectFit: 'cover',
+              backgroundAttachment: 'fixed',
+            }}
+          />
+        </div>
+        <div>
+          <img
+            src={products[18].imageSrc}
+            style={{
+              width: '100%',
+              height: '80vh',
+              objectFit: 'cover',
+              backgroundAttachment: 'fixed',
+            }}
+          />
+        </div>
+      </Carousel>
+    </Box>
   );
 };
 

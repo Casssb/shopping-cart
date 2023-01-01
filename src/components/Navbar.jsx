@@ -46,7 +46,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Container maxWidth="xl">
         {/* Large Screen leftside display */}
         <Toolbar disableGutters component={'nav'}>
