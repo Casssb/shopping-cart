@@ -25,7 +25,7 @@ const ProductInfo = ({ params }) => {
     <Card
       sx={{
         width: { xs: 'min-content', sm: 'max-content', md: 400 },
-        alignSelf: { xs: 'center', md: 'start' },
+        alignSelf: 'start',
         padding: { xs: '0', md: 0 },
         backgroundColor: { xs: '#504e4e', md: '#1E1E1E' },
       }}
