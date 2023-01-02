@@ -34,7 +34,7 @@ const ProductInfo = ({ params }) => {
           Cost: {activeProduct.price}
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions sx={{ flexDirection: 'column', gap: '1rem', alignItems: 'start', p: '1rem' }}>
         <ButtonGroup size="small" aria-label="increment=decrement buttons">
           {isInCart ? (
             <>
@@ -55,7 +55,7 @@ const ProductInfo = ({ params }) => {
                         })
                 }
               >
-                {cartElem.quantity === 1 ? 'X Remove' : '-'}
+                {cartElem.quantity === 1 ? 'X' : '-'}
               </Button>
               <Button size="large" disabled>
                 {cartElem.quantity}
@@ -82,6 +82,18 @@ const ProductInfo = ({ params }) => {
             + {!isInCart && 'add to cart'}
           </Button>
         </ButtonGroup>
+        {isInCart && (
+          <Button
+            size="large"
+            color="error"
+            variant='outlined'
+            onClick={() =>
+              dispatch({ type: 'REMOVE_FROM_CART', payload: cartElem })
+            }
+          >
+            Delete
+          </Button>
+        )}
       </CardActions>
     </Card>
   );
