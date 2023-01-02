@@ -22,19 +22,32 @@ const ProductInfo = ({ params }) => {
   console.log(activeProduct, cart, isInCart);
 
   return (
-    <Card>
+    <Card
+      sx={{
+        width: { xs: 'max-content', md: 400 },
+        alignSelf: { xs: 'center', md: 'start' },
+        padding: {xs: '0 2rem', md: 0}
+      }}
+    >
       <CardContent>
-        <Typography variant="h3" gutterBottom color={'primary'}>
+        <Typography variant="h4" gutterBottom color={'primary'}>
           {activeProduct.name}
         </Typography>
-        <Typography variant="h5" gutterBottom color={'text.secondary'}>
+        <Typography variant="h6" gutterBottom color={'text.secondary'}>
           By {activeProduct.ai}
         </Typography>
-        <Typography variant="h4" fontWeight={'500'}>
-          Cost: {activeProduct.price}
+        <Typography variant="h5" fontWeight={'500'}>
+          Price: {activeProduct.price}
         </Typography>
       </CardContent>
-      <CardActions sx={{ flexDirection: 'column', gap: '1rem', alignItems: 'start', p: '1rem' }}>
+      <CardActions
+        sx={{
+          flexDirection: 'column',
+          gap: '1rem',
+          alignItems: 'start',
+          p: '1rem',
+        }}
+      >
         <ButtonGroup size="small" aria-label="increment=decrement buttons">
           {isInCart ? (
             <>
@@ -57,7 +70,15 @@ const ProductInfo = ({ params }) => {
               >
                 {cartElem.quantity === 1 ? 'X' : '-'}
               </Button>
-              <Button size="large" disabled>
+              <Button
+                size="large"
+                disabled
+                sx={{
+                  '&.Mui-disabled': {
+                    color: 'text.primary',
+                  },
+                }}
+              >
                 {cartElem.quantity}
               </Button>
             </>
@@ -86,7 +107,7 @@ const ProductInfo = ({ params }) => {
           <Button
             size="large"
             color="error"
-            variant='outlined'
+            variant="outlined"
             onClick={() =>
               dispatch({ type: 'REMOVE_FROM_CART', payload: cartElem })
             }

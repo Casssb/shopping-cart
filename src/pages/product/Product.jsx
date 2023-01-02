@@ -8,16 +8,23 @@ import SimilarProducts from './SimilarProducts';
 const Product = () => {
   const params = useParams();
   return (
-    <Container maxWidth={'xl'}>
+    <Container maxWidth={'xl'} component={'main'}>
       <Box
         display={'flex'}
+        flexDirection={{xs: 'column', md: 'row'}}
         width={'100%'}
         height={'100%'}
         justifyContent={'center'}
-        alignItems={'center'}
       >
         <ProductDisplay params={params} />
-        <Box display={'flex'} flexDirection={'column'}>
+        <Box
+          display={'flex'}
+          height={'100%'}
+          width={'100%'}
+          flexDirection={'column'}
+          margin={'2rem'}
+          flex={1}
+        >
           <ProductInfo params={params} />
           <SimilarProducts params={params} />
         </Box>

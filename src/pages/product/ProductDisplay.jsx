@@ -11,9 +11,9 @@ const ProductDisplay = ({ params }) => {
   const activeProduct = products.find((prod) => prod.id === params.id);
 
   return (
-    <Card sx={{ width: 500, height: '80%', margin: '2rem' }}>
+    <Card sx={{ height: '100%', margin: '2rem', flex: 1 }}>
       <CardMedia
-        sx={{ height: 500 }}
+        sx={{ height: 550 }}
         image={activeProduct.imageSrc}
         title={activeProduct.name}
       />

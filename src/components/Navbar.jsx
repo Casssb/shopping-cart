@@ -33,6 +33,8 @@ const Navbar = () => {
   } = ShopContext();
   const navigate = useNavigate();
 
+  const cartTotal = cart.reduce((acc, c) => acc + c.quantity, 0);
+
   const [anchorElMenu, setanchorElMenu] = useState(null);
   const [anchorElCart, setanchorElCart] = useState(null);
 
@@ -171,7 +173,7 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open cart">
               <IconButton onClick={handleOpenCart} sx={{ p: 0 }}>
-                <Badge badgeContent={cart.length} color="primary">
+                <Badge badgeContent={cartTotal} color="primary">
                   <ShoppingCartIcon />
                 </Badge>
               </IconButton>
@@ -197,10 +199,12 @@ const Navbar = () => {
                   key={item.id}
                   onClick={() => {
                     handleCloseCart();
-                    navigate(`/product/${item.id}`)
+                    navigate(`/product/${item.id}`);
                   }}
                 >
-                  <Typography textAlign="center">{item.name}</Typography>
+                  <Typography textAlign="center">{`${item.name}${
+                    item.quantity > 1 ? ` (${item.quantity})` : ''
+                  }`}</Typography>
                 </MenuItem>
               ))}
             </Menu>
