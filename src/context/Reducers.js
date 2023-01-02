@@ -8,16 +8,27 @@ const shopReducer = (state, action) => {
     case 'REMOVE_FROM_CART':
       return {
         ...state,
-        cart: state.cart.filter((item) => item.name !== action.payload.name),
+        cart: state.cart.filter((item) => item.id !== action.payload.id),
       };
-    case 'CHANGE_ITEM_QUANTITY':
+    case 'INCREASE_ITEM_COUNT':
       return {
         ...state,
-        cart: state.cart.filter((item) =>
-          item.name === action.payload.name
-            ? (item.quantity = action.payload.quantity)
-            : item.quantity
-        ),
+        cart: state.cart.map((item) => {
+          if (item.id === action.payload.id) {
+            item.quantity += 1;
+          }
+          return item;
+        }),
+      };
+    case 'DECREASE_ITEM_COUNT':
+      return {
+        ...state,
+        cart: state.cart.map((item) => {
+          if (item.id === action.payload.id) {
+            item.quantity -= 1;
+          }
+          return item;
+        }),
       };
     default:
       return state;

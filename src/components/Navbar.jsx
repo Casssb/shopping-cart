@@ -16,6 +16,8 @@ import {
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu';
+import { ShopContext } from '../context/ShopContext';
+import { useNavigate } from 'react-router-dom';
 
 const pages = [
   { name: 'Home', to: '/' },
@@ -23,9 +25,14 @@ const pages = [
   { name: 'Cart', to: 'cart' },
 ];
 
-const cartItems = ['item1', 'item2', 'item3'];
-
 const Navbar = () => {
+  const {
+    cachedState: {
+      state: { cart },
+    },
+  } = ShopContext();
+  const navigate = useNavigate();
+
   const [anchorElMenu, setanchorElMenu] = useState(null);
   const [anchorElCart, setanchorElCart] = useState(null);
 
@@ -164,7 +171,7 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open cart">
               <IconButton onClick={handleOpenCart} sx={{ p: 0 }}>
-                <Badge badgeContent={cartItems.length} color="primary">
+                <Badge badgeContent={cart.length} color="primary">
                   <ShoppingCartIcon />
                 </Badge>
               </IconButton>
@@ -185,9 +192,15 @@ const Navbar = () => {
               open={Boolean(anchorElCart)}
               onClose={handleCloseCart}
             >
-              {cartItems.map((item) => (
-                <MenuItem key={item} onClick={handleCloseCart}>
-                  <Typography textAlign="center">{item}</Typography>
+              {cart.map((item) => (
+                <MenuItem
+                  key={item.id}
+                  onClick={() => {
+                    handleCloseCart();
+                    navigate(`/product/${item.id}`)
+                  }}
+                >
+                  <Typography textAlign="center">{item.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>

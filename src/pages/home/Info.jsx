@@ -57,6 +57,7 @@ const Info = () => {
         </Box>
         <Box
           height={'100%'}
+          minHeight={500}
           width={{ xs: '100%', md: '50%' }}
           bgcolor={'#272727'}
         >

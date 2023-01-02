@@ -59,7 +59,7 @@ const Banner = () => {
       >
         <div>
           <img
-            src={products[16].imageSrc}
+            src={products[19].imageSrc}
             style={{
               width: '100%',
               height: '90vh',
@@ -81,7 +81,7 @@ const Banner = () => {
         </div>
         <div>
           <img
-            src={products[18].imageSrc}
+            src={products[20].imageSrc}
             style={{
               width: '100%',
               height: '90vh',

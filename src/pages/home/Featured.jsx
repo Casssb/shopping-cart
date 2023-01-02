@@ -36,13 +36,13 @@ const Featured = () => {
         </Typography>
         <ImageList
           cols={matches ? 3 : 1}
-          sx={{ width: '100%', height: 600, mt: '4rem' }}
+          sx={{ width: '100%', height: 500, mt: '4rem' }}
         >
           {randomProductIndexes.map((index) => (
             <ImageListItem
               key={products[index].imageSrc}
               sx={{ cursor: 'pointer' }}
-              onClick={() => navigate(`/product/${products[index].name}`)}
+              onClick={() => navigate(`/product/${products[index].id}`)}
             >
               <img
                 src={products[index].imageSrc}
@@ -60,9 +60,3 @@ const Featured = () => {
 };
 
 export default Featured;
-
-/*           {randomProductIndexes.map((index) => (
-            <Box>
-              <img src={products[index].imageSrc} alt={products[index].name} />
-            </Box>
-          ))} */
