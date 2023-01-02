@@ -13,7 +13,7 @@ const ProductDisplay = ({ params }) => {
   return (
     <Card sx={{ height: '100%', margin: '2rem', flex: 1 }}>
       <CardMedia
-        sx={{ height: 550 }}
+        sx={{ height: { xs: 350, sm: 550 } }}
         image={activeProduct.imageSrc}
         title={activeProduct.name}
       />
