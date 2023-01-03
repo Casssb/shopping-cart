@@ -33,7 +33,7 @@ const products = [
       'An alien world with fauna, photograph, wide angle, 4k, realistic, realism, ultrarealistic',
   },
   {
-    name: 'Cyberpunk Factory (Black & White)',
+    name: 'Cyberpunk Factory',
     id: 'landscape02',
     ai: 'Midjourney',
     price: 400,

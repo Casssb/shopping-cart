@@ -7,7 +7,6 @@ import {
 import React from 'react';
 import { ShopContext } from '../../context/ShopContext';
 import { useNavigate } from 'react-router-dom';
-import { Calculate } from '@mui/icons-material';
 
 const SimilarProducts = ({ params }) => {
   const {

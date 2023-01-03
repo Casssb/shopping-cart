@@ -49,15 +49,12 @@ const Info = () => {
             AI's
           </Typography>
           <Typography variant="p" align="center">
-            The artwork is created by giving the AI a text 'prompt'. The nearby
-            image was given the following promt; "A lonely stranger inside a
-            hall of monumental cyberpunk industrial factory megacomplex; by
-            tsutomi nihei; hyperrealistic, 4K wallpaper, highly detailed"{' '}
+            {`The artwork is created by giving the AI a text 'prompt'. The nearby
+            image was given the following promt; "${products[1].prompt}"`}
           </Typography>
         </Box>
         <Box
           height={'100%'}
-          minHeight={500}
           width={{ xs: '100%', md: '50%' }}
           bgcolor={'#272727'}
         >
