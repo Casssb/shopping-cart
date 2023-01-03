@@ -50,7 +50,7 @@ const Info = () => {
           </Typography>
           <Typography variant="p" align="center">
             {`The artwork is created by giving the AI a text 'prompt'. The nearby
-            image was given the following promt; "${products[1].prompt}"`}
+            image was given the following promt; "${products[17].prompt}"`}
           </Typography>
         </Box>
         <Box
@@ -59,7 +59,7 @@ const Info = () => {
           bgcolor={'#272727'}
         >
           <img
-            src={products[1].imageSrc}
+            src={products[17].imageSrc}
             style={{
               width: '100%',
               height: '100%',

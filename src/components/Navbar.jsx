@@ -12,10 +12,15 @@ import {
   Box,
   MenuItem,
   Badge,
+  Divider,
+  ListItemIcon,
+  ListItemText,
+  Avatar,
 } from '@mui/material';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { ShopContext } from '../context/ShopContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -31,6 +36,7 @@ const Navbar = () => {
       state: { cart },
     },
   } = ShopContext();
+  const { dispatch } = ShopContext();
   const navigate = useNavigate();
 
   const cartTotal = cart.reduce((acc, c) => acc + c.quantity, 0);
@@ -195,18 +201,56 @@ const Navbar = () => {
               onClose={handleCloseCart}
             >
               {cart.map((item) => (
-                <MenuItem
-                  key={item.id}
-                  onClick={() => {
-                    handleCloseCart();
-                    navigate(`/product/${item.id}`);
-                  }}
-                >
-                  <Typography textAlign="center">{`${item.name}${
-                    item.quantity > 1 ? ` (${item.quantity})` : ''
-                  }`}</Typography>
-                </MenuItem>
+                <Box display={'flex'}>
+                  <MenuItem
+                    key={item.id}
+                    onClick={() => {
+                      handleCloseCart();
+                      navigate(`/product/${item.id}`);
+                    }}
+                  >
+                    <Avatar
+                      variant="square"
+                      src={item.imageSrc}
+                      alt={item.name}
+                      sx={{ marginRight: '1rem' }}
+                    />
+                    <Typography textAlign="center">{`${item.name}${
+                      item.quantity > 1 ? ` (${item.quantity})` : ''
+                    }`}</Typography>
+                  </MenuItem>
+                  <Button
+                    sx={{
+                      marginLeft: 'auto',
+                      padding: '1rem',
+                    }}
+                    onClick={() => {
+                      cart.length === 1 && handleCloseCart();
+                      dispatch({
+                        type: 'REMOVE_FROM_CART',
+                        payload: item,
+                      });
+                    }}
+                  >
+                    <DeleteForeverIcon fontSize="small" color="error" />
+                  </Button>
+                </Box>
               ))}
+              <Divider />
+              <MenuItem
+                onClick={() => {
+                  handleCloseCart();
+                  navigate(`/cart`);
+                }}
+                sx={{padding: '0.5rem 2rem 0.5rem 2rem'}}
+              >
+                <ListItemIcon>
+                  <ShoppingCartIcon color="primary" fontSize="small" />
+                </ListItemIcon>
+                <ListItemText color="primary" sx={{ color: '#90CAF9' }}>
+                  Checkout
+                </ListItemText>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>

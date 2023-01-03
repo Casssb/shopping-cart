@@ -12,7 +12,9 @@ const ShopFilters = ({
       flex={1}
       component={'section'}
       display={'flex'}
-      flexDirection={'column'}
+      flexDirection={{xs: 'row', md: 'column'}}
+      pb={'2rem'}
+      gap={{xs: '1rem', md: 'none'}}
     >
       <Box position={{ xs: 'none', md: 'fixed' }}>
         <ToggleButtonGroup
@@ -38,7 +40,7 @@ const ShopFilters = ({
           </ToggleButton>
         </ToggleButtonGroup>
       </Box>
-      <Box position={{ xs: 'none', md: 'fixed' }} mt={'18rem'}>
+      <Box position={{ xs: 'none', md: 'fixed' }} mt={{xs:'none', md: '18rem'}}>
         <ToggleButtonGroup
           orientation="vertical"
           color="primary"
