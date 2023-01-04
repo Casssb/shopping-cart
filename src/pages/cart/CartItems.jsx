@@ -41,7 +41,11 @@ const CartItems = () => {
         <Typography variant="span"></Typography>
       </Box>
       <Divider />
-      {cartItemsTotal === 0 && <Typography variant='h6' padding={'1rem'}>Your cart is empty</Typography>}
+      {cartItemsTotal === 0 && (
+        <Typography variant="h6" padding={'1rem'}>
+          Your cart is empty
+        </Typography>
+      )}
       {cart.map((item) => (
         <Box
           key={item.id}
@@ -150,7 +154,6 @@ const CartItems = () => {
           variant={isMobile ? 'contained' : 'outlined'}
           onClick={() => {
             dispatch({ type: 'CLEAR_CART' });
-            navigate('/shop');
           }}
         >
           Clear Cart

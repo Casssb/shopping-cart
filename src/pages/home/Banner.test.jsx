@@ -3,17 +3,22 @@ import { describe, expect, it } from 'vitest';
 import '@testing-library/jest-dom';
 import Banner from './Banner';
 import { BrowserRouter } from 'react-router-dom';
+import { Context } from '../../context/ShopContext';
 
 describe('Banner', () => {
   it('renders correctly', () => {
     render(
       <BrowserRouter>
-        <Banner />
+        <Context>
+          <Banner />
+        </Context>
       </BrowserRouter>
     );
 
-    const banner = screen.getAllByRole('section');
+    const shopNowButton = screen.getByRole('button', { name: /shop now/i });
+    const mainText = screen.getByRole('heading', { name: /The latest in/i });
 
-    expect(banner).toBeInTheDocument();
+    expect(shopNowButton).toBeInTheDocument();
+    expect(mainText).toBeInTheDocument();
   });
 });
