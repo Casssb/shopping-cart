@@ -32,7 +32,7 @@ const Featured = () => {
         }}
       >
         <Typography variant="h4" align="center" fontWeight={'500'}>
-          Featured Projects
+          Featured Art
         </Typography>
         <ImageList
           cols={matches ? 3 : 1}

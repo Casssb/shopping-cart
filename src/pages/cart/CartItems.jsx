@@ -21,6 +21,8 @@ const CartItems = () => {
   const isMobile = useMediaQuery(`(max-width:600px)`);
   const navigate = useNavigate();
 
+  const cartItemsTotal = cart.reduce((acc, c) => acc + c.quantity, 0);
+
   return (
     <Box flex={3} component={'section'}>
       <Box
@@ -39,6 +41,7 @@ const CartItems = () => {
         <Typography variant="span"></Typography>
       </Box>
       <Divider />
+      {cartItemsTotal === 0 && <Typography variant='h6' padding={'1rem'}>Your cart is empty</Typography>}
       {cart.map((item) => (
         <Box
           key={item.id}
@@ -76,6 +79,7 @@ const CartItems = () => {
             display={'flex'}
             justifyContent={{ xs: 'center', sm: 'flex-start' }}
             alignItems={'center'}
+            mt={{ xs: '1rem', sm: '0' }}
           >
             <ButtonGroup size="small" aria-label="increment=decrement buttons">
               <Button

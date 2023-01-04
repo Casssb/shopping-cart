@@ -240,14 +240,14 @@ const Navbar = () => {
                   </Button>
                 </Box>
               ))}
-              <Divider />
+              <Divider sx={{ padding: '0.2rem' }} />
               <MenuItem
                 disabled={true}
                 sx={{
                   '&.Mui-disabled': { color: 'text.primary', opacity: '1' },
                 }}
               >
-                <Typography textAlign={'center'}>
+                <Typography textAlign={'center'} pt="0.2rem">
                   Total: {cartPriceTotal}
                 </Typography>
               </MenuItem>
@@ -263,7 +263,7 @@ const Navbar = () => {
                   <ShoppingCartIcon color="primary" fontSize="small" />
                 </ListItemIcon>
                 <ListItemText color="primary" sx={{ color: '#90CAF9' }}>
-                  Checkout
+                  Go to Basket
                 </ListItemText>
               </MenuItem>
             </Menu>
