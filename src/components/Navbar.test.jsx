@@ -1,19 +1,11 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '../../tests/test-utils';
 import { describe, expect, it } from 'vitest';
 import '@testing-library/jest-dom';
 import Navbar from './Navbar';
-import { BrowserRouter } from 'react-router-dom';
-import { Context } from '../context/ShopContext';
 
 describe('Navbar', () => {
   it('renders correctly', () => {
-    render(
-      <BrowserRouter>
-        <Context>
-          <Navbar />
-        </Context>
-      </BrowserRouter>
-    );
+    render(<Navbar />);
 
     const header = screen.getByRole('banner');
     const nav = screen.getByRole('navigation');
@@ -21,13 +13,7 @@ describe('Navbar', () => {
     expect(header).toBeInTheDocument();
   });
   it('has the correct number of links', () => {
-    render(
-      <BrowserRouter>
-        <Context>
-          <Navbar />
-        </Context>
-      </BrowserRouter>
-    );
+    render(<Navbar />);
 
     const links = screen.queryAllByRole('link');
     expect(links.length).toBe(5);

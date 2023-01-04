@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import React from 'react';
 
 const Banner = React.lazy(() => import('./Banner'));
@@ -6,11 +7,11 @@ const Featured = React.lazy(() => import('./Featured'));
 
 const Home = () => {
   return (
-    <main>
+    <Box component={'main'}>
       <Banner />
       <Info />
       <Featured />
-    </main>
+    </Box>
   );
 };
 

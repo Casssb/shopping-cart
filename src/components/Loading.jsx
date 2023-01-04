@@ -9,6 +9,7 @@ const Loading = () => {
       display={'flex'}
       justifyContent={'center'}
       alignItems={'center'}
+      component={'main'}
     >
       <CircularProgress color="secondary" />
     </Box>
