@@ -36,7 +36,7 @@ const Featured = () => {
         </Typography>
         <ImageList
           cols={matches ? 3 : 1}
-          sx={{ width: '100%', height: 500, mt: '4rem' }}
+          sx={{ width: '100%', height: 500, mt: '3rem' }}
         >
           {randomProductIndexes.map((index) => (
             <ImageListItem

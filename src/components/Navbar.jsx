@@ -39,7 +39,8 @@ const Navbar = () => {
   const { dispatch } = ShopContext();
   const navigate = useNavigate();
 
-  const cartTotal = cart.reduce((acc, c) => acc + c.quantity, 0);
+  const cartItemsTotal = cart.reduce((acc, c) => acc + c.quantity, 0);
+  const cartPriceTotal = cart.reduce((acc, c) => acc + c.quantity * c.price, 0);
 
   const [anchorElMenu, setanchorElMenu] = useState(null);
   const [anchorElCart, setanchorElCart] = useState(null);
@@ -124,6 +125,7 @@ const Navbar = () => {
                   onClick={handleCloseMenu}
                   component={NavLink}
                   to={page.to}
+                  sx={{ padding: '2rem 4rem' }}
                 >
                   <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
@@ -177,9 +179,12 @@ const Navbar = () => {
 
           {/* Cart Section */}
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open cart">
-              <IconButton onClick={handleOpenCart} sx={{ p: 0 }}>
-                <Badge badgeContent={cartTotal} color="primary">
+            <Tooltip title={cartItemsTotal > 0 ? 'Open cart' : 'Cart is empty'}>
+              <IconButton
+                onClick={cartItemsTotal > 0 ? handleOpenCart : null}
+                sx={{ p: 0 }}
+              >
+                <Badge badgeContent={cartItemsTotal} color="primary">
                   <ShoppingCartIcon />
                 </Badge>
               </IconButton>
@@ -201,9 +206,8 @@ const Navbar = () => {
               onClose={handleCloseCart}
             >
               {cart.map((item) => (
-                <Box display={'flex'}>
+                <Box display={'flex'} key={item.id}>
                   <MenuItem
-                    key={item.id}
                     onClick={() => {
                       handleCloseCart();
                       navigate(`/product/${item.id}`);
@@ -238,11 +242,22 @@ const Navbar = () => {
               ))}
               <Divider />
               <MenuItem
+                disabled={true}
+                sx={{
+                  '&.Mui-disabled': { color: 'text.primary', opacity: '1' },
+                }}
+              >
+                <Typography textAlign={'center'}>
+                  Total: {cartPriceTotal}
+                </Typography>
+              </MenuItem>
+              <Divider />
+              <MenuItem
                 onClick={() => {
                   handleCloseCart();
                   navigate(`/cart`);
                 }}
-                sx={{padding: '0.5rem 2rem 0.5rem 2rem'}}
+                sx={{ padding: '0.5rem 2rem 0.5rem 2rem' }}
               >
                 <ListItemIcon>
                   <ShoppingCartIcon color="primary" fontSize="small" />

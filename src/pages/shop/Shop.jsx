@@ -26,12 +26,11 @@ const Shop = () => {
   };
 
   return (
-    <Container maxWidth={'xl'}>
+    <Container maxWidth={'xl'} component={'main'}>
       <Box
         display={'flex'}
         flexDirection={{ xs: 'column', md: 'row' }}
         justifyContent={'space-around'}
-        component={'main'}
         padding={'2rem'}
       >
         <ShopFilters

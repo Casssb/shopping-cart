@@ -10,6 +10,11 @@ const shopReducer = (state, action) => {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload.id),
       };
+    case 'CLEAR_CART':
+      return {
+        ...state,
+        cart: [],
+      };
     case 'INCREASE_ITEM_COUNT':
       return {
         ...state,
