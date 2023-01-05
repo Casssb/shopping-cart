@@ -1,4 +1,4 @@
- Store Frontend (Shopping Cart)
+ # Store Frontend (Shopping Cart)
 
 An e-commerce frontend built with React, React Router & MUI (Emotion). Tested with Vitest & Testing Library.
 
