@@ -9,7 +9,7 @@ const params = {
 
 describe('ProductDisplay', () => {
   it('renders correctly (with props)', async () => {
-    render(<ProductDisplay params={paramsh} />);
+    render(<ProductDisplay params={params} />);
     await act(async () => {
       const headingText = await screen.findByRole('heading');
       expect(headingText).toBeInTheDocument();
