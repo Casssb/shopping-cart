@@ -1,5 +1,6 @@
 import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 import React from 'react';
+import PropTypes from 'prop-types'
 import { ShopContext } from '../../context/ShopContext';
 
 const ProductDisplay = ({ params }) => {
@@ -27,6 +28,10 @@ const ProductDisplay = ({ params }) => {
       </CardContent>
     </Card>
   );
+};
+
+ProductDisplay.propTypes = {
+  id: PropTypes.string.isRequired,
 };
 
 export default ProductDisplay;

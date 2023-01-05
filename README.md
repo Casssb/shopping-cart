@@ -39,6 +39,7 @@ I think I may have learnt more on this project than the last 2-3 put together! R
 * I think the main lesson I've learnt from all of the testing I did is that some of my components are structured in such a way that makes testing very difficult (and therefore are probably not written well). I'll continue reading up on best practices and try to make improvements.
 * Having most of my state stored in a single store and passing this down via context (using the useContext hook) was overkill for the app I made and only really made the testing harder. I did this simply to learn it but if I was re-doing the app to be better structured I don't think a context provider was required (in the worst case props only ever needed to be drilled down 2 levels).
 * I've read a lot about header-less CMS providers like Strapi and I'd like to serve all my data using something like this. Would be nice to add authentication (maybe using something like Firebase) and I think I'll come back and add this in the future.
+* I ended up using PropTypes for type safety but in reality this wasn't very useful. My app only had 3 instances of props being passed in the traditional way (I mostly used a context provider with the useContext hook). In future I'm planning to use Typescript as it seems much more adaptable and comprehensive.
 
 ## Credits
 * All art created by directly [Midjourney](https://midjourney.com/home/?callbackUrl=%2Fapp%2F) or [Stable Diffusion](https://stablediffusionweb.com/) (or taken from [OpenArt](https://openart.ai/) but still made by Midjourney or Stable Diffusion)

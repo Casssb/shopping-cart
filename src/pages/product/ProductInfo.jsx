@@ -9,6 +9,7 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ShopContext } from '../../context/ShopContext';
 
 const ProductInfo = ({ params }) => {
@@ -118,6 +119,10 @@ const ProductInfo = ({ params }) => {
       </Card>
     </Box>
   );
+};
+
+ProductInfo.propTypes = {
+  id: PropTypes.string.isRequired,
 };
 
 export default ProductInfo;
