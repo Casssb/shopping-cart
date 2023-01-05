@@ -5,6 +5,7 @@ import {
   CardActions,
   CardContent,
   Divider,
+  Tooltip,
   Typography,
   useMediaQuery,
 } from '@mui/material';
@@ -24,7 +25,7 @@ const CartSummary = () => {
   const isMobile = useMediaQuery(`(max-width:600px)`);
 
   return (
-    <Box flex={1} component={'section'} raised='true'>
+    <Box flex={1} component={'section'} raised="true">
       <Card variant="outlined">
         <CardContent>
           <Typography variant="h6" mb={'1rem'}>
@@ -52,14 +53,20 @@ const CartSummary = () => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button
-            size="large"
-            disabled={cartItemsTotal > 0 ? false : true}
-            variant={isMobile ? 'contained' : 'outlined'}
-            color="success"
+          <Tooltip
+            title={'Thanks for "checking out" my site (sorry)'}
+            placement="bottom"
+            arrow
           >
-            Buy Now
-          </Button>
+            <Button
+              size="large"
+              disabled={cartItemsTotal > 0 ? false : true}
+              variant={isMobile ? 'contained' : 'outlined'}
+              color="success"
+            >
+              Buy Now
+            </Button>
+          </Tooltip>
         </CardActions>
       </Card>
     </Box>

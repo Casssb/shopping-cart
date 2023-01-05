@@ -4,7 +4,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <Box width={'100%'} display={'flex'} justifyContent={'center'} mt={'2rem'} component={'footer'}>
+    <Box width={'100%'} display={'flex'} justifyContent={'center'} mt={'2rem'} component={'footer'} paddingX={'2rem'}>
       <Breadcrumbs aria-label="breadcrumb">
         <Link
           underline="hover"
