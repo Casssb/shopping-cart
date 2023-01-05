@@ -151,6 +151,7 @@ const CartItems = () => {
         </Button>
         <Button
           color="error"
+          disabled={cartItemsTotal > 0 ? false : true}
           variant={isMobile ? 'contained' : 'outlined'}
           onClick={() => {
             dispatch({ type: 'CLEAR_CART' });

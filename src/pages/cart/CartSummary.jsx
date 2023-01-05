@@ -24,7 +24,7 @@ const CartSummary = () => {
   const isMobile = useMediaQuery(`(max-width:600px)`);
 
   return (
-    <Box flex={1} component={'section'} raised>
+    <Box flex={1} component={'section'} raised='true'>
       <Card variant="outlined">
         <CardContent>
           <Typography variant="h6" mb={'1rem'}>

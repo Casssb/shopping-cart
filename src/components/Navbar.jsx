@@ -27,7 +27,6 @@ import { useNavigate } from 'react-router-dom';
 const pages = [
   { name: 'Home', to: '/' },
   { name: 'Shop', to: 'shop' },
-  { name: 'Cart', to: 'cart' },
 ];
 
 const Navbar = () => {

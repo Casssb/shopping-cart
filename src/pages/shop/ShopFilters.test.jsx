@@ -10,4 +10,11 @@ describe('ShopFilters', () => {
     const allSelectionButton = screen.getByRole('button', {name: /All/i});
     expect(allSelectionButton).toBeInTheDocument();
   });
+
+  it('renders with the correct number of buttons', () => {
+    render(<ShopFilters />);
+
+    const buttonGroup = screen.queryAllByRole('button');
+    expect(buttonGroup).toHaveLength(8);
+  });
 });

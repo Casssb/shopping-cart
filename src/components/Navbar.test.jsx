@@ -16,6 +16,6 @@ describe('Navbar', () => {
     render(<Navbar />);
 
     const links = screen.queryAllByRole('link');
-    expect(links.length).toBe(5);
+    expect(links.length).toBe(4);
   });
 });

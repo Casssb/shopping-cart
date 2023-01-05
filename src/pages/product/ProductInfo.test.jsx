@@ -3,11 +3,17 @@ import { describe, expect, it } from 'vitest';
 import '@testing-library/jest-dom';
 import ProductInfo from './ProductInfo';
 
-describe('ProductInfo', () => {
-  it('renders correctly', () => {
-    render(<ProductInfo params='1' />);
+const params = {
+  id: 'shape01',
+};
 
-    const mainWrapper = screen.getByRole('main');
-    expect(mainWrapper).toBeInTheDocument();
+describe('ProductInfo', () => {
+  it('renders correctly (with props)', () => {
+    render(<ProductInfo params={params} />);
+
+    const productTittle = screen.getByRole('heading', {
+      name: /Band Logo/i,
+    });
+    expect(productTittle).toBeInTheDocument();
   });
 });
