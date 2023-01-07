@@ -28,10 +28,10 @@ const Banner = () => {
         color={'black'}
       >
         <Container maxWidth="xl">
-          <Typography variant="h5" fontWeight={'700'}>
+          <Typography variant="h5" component={'h1'} fontWeight={'700'}>
             The latest in
           </Typography>
-          <Typography variant="h3" fontWeight={'500'}>
+          <Typography variant="h3" component={'h1'} fontWeight={'500'}>
             AI generated
           </Typography>
           <Typography
@@ -60,6 +60,7 @@ const Banner = () => {
         <div>
           <img
             src={products[19].imageSrc}
+            alt={products[19].name}
             style={{
               width: '100%',
               height: '90vh',
@@ -71,6 +72,7 @@ const Banner = () => {
         <div>
           <img
             src={products[2].imageSrc}
+            alt={products[2].name}
             style={{
               width: '100%',
               height: '90vh',
@@ -82,6 +84,7 @@ const Banner = () => {
         <div>
           <img
             src={products[20].imageSrc}
+            alt={products[20].name}
             style={{
               width: '100%',
               height: '90vh',

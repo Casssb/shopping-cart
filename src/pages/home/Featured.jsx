@@ -22,7 +22,7 @@ const Featured = () => {
   const matches = useMediaQuery(`(min-width:900px)`);
   const navigate = useNavigate();
   return (
-    <Box width={'100%'} height={'100%'} mt={6}>
+    <Box width={'100%'} height={'100%'} mt={6} component={'section'}>
       <Container
         maxWidth={'xl'}
         sx={{

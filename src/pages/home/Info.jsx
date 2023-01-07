@@ -9,7 +9,7 @@ const Info = () => {
     },
   } = ShopContext();
   return (
-    <Box width={'100%'} height={{ xs: '100%', md: '60vh' }} mt={6}>
+    <Box width={'100%'} height={{ xs: '100%', md: '60vh' }} mt={6} component={'section'}>
       <Container
         maxWidth={'xl'}
         sx={{
@@ -60,6 +60,7 @@ const Info = () => {
         >
           <img
             src={products[17].imageSrc}
+            alt={products[17].name}
             style={{
               width: '100%',
               height: '100%',
